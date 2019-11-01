@@ -16,6 +16,7 @@ export class NevbarComponent implements OnInit {
   }
   public admin : boolean = false;
   public employee : boolean = false;
+  public countproduct: number = 1;
   adminMethod(){
      this.admin = true;
      this.employee = false;
@@ -27,6 +28,10 @@ export class NevbarComponent implements OnInit {
   notadminempMethod(){
        this.admin = false;
        this.employee = false;
+  }
+  removeAnItem(){
+     event.preventDefault();
+  //   console.log("1");
   }
 
 }

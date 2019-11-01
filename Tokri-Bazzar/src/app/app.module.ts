@@ -8,6 +8,7 @@ import { IndexComponent } from './index/index.component';
 import { AdminComponent } from './controllers/admin/admin.component';
 import { EmployeeComponent } from './controllers/employee/employee.component';
 import { NevbarComponent } from './nevbar/nevbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NevbarComponent } from './nevbar/nevbar.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
