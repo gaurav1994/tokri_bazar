@@ -4,5 +4,14 @@ export interface IcartAllItem {
      name : string,
      thumbnail : string
      discription : string,
-     lastupdate : string
+     lastupdate : string,
+     price : number
+}
+
+export interface IcartOrder {
+     id :  number,
+     name : string,
+     thumbnail : string
+     discription : string,
+     count : number
 }

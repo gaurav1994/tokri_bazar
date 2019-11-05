@@ -1,3 +1,18 @@
 .card-text{
      font-size: 0.8em;
 }
+.price-tag{
+     background-image: url('../../assets/psd_images/price_bg.png');
+     background-repeat: no-repeat;
+     width: auto;
+     height: auto;
+     background-size: contain;
+     padding: 4px  10px  15px  30px;
+     font-weight: bold;
+     color: black;
+     float: right;
+     position: absolute;
+     top: 0px;
+     right: 0px;
+  //   background: transparent;
+}

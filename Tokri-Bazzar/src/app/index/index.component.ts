@@ -1,3 +1,4 @@
+import { Cart } from './../classes/cart';
 import { Component, OnInit, ViewChild, AfterViewChecked, AfterContentChecked, AfterViewInit, AfterContentInit } from '@angular/core';
 import { NevbarComponent } from '../nevbar/nevbar.component';
 import { CartServiceService } from '../services/cart-service.service';
@@ -22,16 +23,11 @@ export class IndexComponent implements OnInit, AfterContentChecked{
     //   console.log(this.allItems);
      
   }
-  addToCart(item){
-     var itemobj =  {
-          id : item.id ,
-          name : item.name,
-          thumbnail : item.thumbnail,
-          discription : item.discription,
-          lastupdate : item.lastupdate
-     };
-     sessionStorage.setItem(item.id, JSON.stringify(itemobj ) ) ; 
-    this.cart.push( JSON.parse(sessionStorage.getItem(item.id)) ) ;
+ // public itemobj =  new Cart();
+  addToCart(item, selecteditemcount){
+  //   sessionStorage.setItem(item.id, JSON.stringify(itemobj ) ) ;
+     Cart.addItemtoCart(item, Number.parseInt( selecteditemcount.value) );
+  //   console.log(Cart.cart);
   }
 
 }

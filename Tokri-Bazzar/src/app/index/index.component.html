@@ -18,27 +18,28 @@
           <div class="col-md-8">
                <div *ngFor="let item of allItems" >
                     <div class="card mb-3" style="max-width: 600px;">
-                         item
+                         
+                         <div class="price-tag">{{ item.price }}  Rs/- </div>
                          <div class="row no-gutters">
                               <div class="col-md-4">
-                                   <img src="{{ item.thumbnail }}" class="card-img" alt="...">
+                                   <img src="{{  item.thumbnail  }}" class="card-img" alt="...">
                               </div>
                               <div class="col-md-8">
                                    <div class="card-body">
                                         <h5 class="card-title">{{ item.name }}</h5>
+                                        <span> </span>
                                         <p class="card-text">{{ item.discription }}</p>
                                         <div class="row">
                                              <p class="card-text col-md-6"><small class="text-muted">Last updated {{ item.lastupdate }}
                                                        ago</small></p>
                                              <div class="col-md-6">
-                                                  <select class="col-md-4 form-control form-control-sm" id="inlineFormCustomSelect">
+                                                  <select class="col-md-4 form-control form-control-sm" id="inlineFormCustomSelect" #selected_item_count>
                                                        <option value="1" selected>1</option>
                                                        <option value="2">2</option>
                                                        <option value="3">3</option>
                                                   </select>
-
                                              </div>
-                                             <button class="btn btn-warning btn-sm ml-3" (click)="addToCart(item)">Add to Cart</button>
+                                             <button class="btn btn-warning btn-sm ml-3" (click)="addToCart(item, selected_item_count)">Add to Cart</button>
                                         </div>
                                    </div>
                               </div>
