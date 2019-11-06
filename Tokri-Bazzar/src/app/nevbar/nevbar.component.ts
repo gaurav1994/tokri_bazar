@@ -26,31 +26,42 @@ export class NevbarComponent implements OnInit, AfterContentChecked {
   ngAfterContentChecked() {
     //   console.log( "cart items in nevbar component ");
     console.log(this.cartNevbar);
+    this.cartNevbar = Cart.cart;
+    this.totalcounttype = this.cartNevbar.length;
+    this.totalproduct = Cart.itemCountMethod();
+    this.grandtotal = Cart.itemGrandTotal();
+    console.log(this.totalproduct);
   }
   public admin: boolean = false;
   public employee: boolean = false;
-  public countproduct: number = 1;
-  public cartNevbar: IcartOrder[] = Cart.cart;
-  adminMethod() {
+  public countproduct: number ;
+  public cartNevbar: IcartOrder[] = [];
+  public totalcounttype : number ;
+  public totalproduct : number ;
+  public grandtotal: number;
+  public adminMethod() {
     this.admin = true;
     this.employee = false;
   }
-  employeeMethod() {
+  public employeeMethod() {
     this.admin = false;
     this.employee = true;
   }
-  notadminempMethod() {
+  public notadminempMethod() {
     this.admin = false;
     this.employee = false;
   }
-  removeAnItem() {
-    event.preventDefault();
-    //   console.log("1");
+  public removeAnItem(i) {
+     event.stopPropagation();
+     Cart.removeAnItem(i);
   }
-  itemCountNegative(i){
-          Cart.negativeItemCount(i);
+  public itemCountNegative(i){
+     Cart.negativeItemCount(i);
   }
-  itemCountPositive(i){
+  public itemCountPositive(i){
      Cart.positiveItemCount(i);
+  }
+  public clearCart(){
+     Cart.clearCartMethod();
   }
 }

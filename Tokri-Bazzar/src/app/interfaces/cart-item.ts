@@ -13,5 +13,6 @@ export interface IcartOrder {
      name : string,
      thumbnail : string
      discription : string,
+     price : number,
      count : number
 }
