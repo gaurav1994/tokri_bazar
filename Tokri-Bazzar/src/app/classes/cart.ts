@@ -2,7 +2,6 @@ import { IcartAllItem, IcartOrder } from "../interfaces/cart-item";
 
 export class Cart {
   static cart: IcartOrder[] = [];
-  private static totalcount : number = 0;
   //     constructor(cartlocal: any[]) {
   //       this.cart = cartlocal;
   //     }
@@ -36,11 +35,11 @@ export class Cart {
           this.cart.splice(ind,1);
   }
   static itemCountMethod():number{
-       this.totalcount = 0;
+       let totalcount: number = 0;
        for(var i in this.cart){
-            this.totalcount = this.totalcount + this.cart[i].count;
+            totalcount = totalcount + this.cart[i].count;
        }
-       return this.totalcount;
+       return totalcount;
   }
   static itemGrandTotal(): number {
        let grandtotal : number = 0;
