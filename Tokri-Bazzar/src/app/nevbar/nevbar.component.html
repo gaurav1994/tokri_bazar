@@ -64,19 +64,19 @@
                                                        <th scope="row">{{cartitem.id}}</th>
                                                        <td>{{cartitem.thumbnail}}</td>
                                                        <td>{{cartitem.name}}</td>
-                                                       <td>8</td>
+                                                       <td>{{cartitem.price}}</td>
                                                        <td>
                                                             <button type="button" class="btn-sm btn-style"
-                                                                 (click)="countproduct = countproduct-1">
+                                                                 (click)="cartitem.count = cartitem.count - 1">
                                                                  <i class="material-icons"> remove_circle_outline </i>
                                                             </button>
                                                             {{ cartitem.count }}
                                                             <button type="button" class=" btn-sm btn-style"
-                                                                 (click)="countproduct = countproduct+1">
+                                                                 (click)="cartitem.count = cartitem.count + 1">
                                                                  <i class="material-icons"> add_circle_outline </i>
                                                             </button>
                                                        </td>
-                                                       <td>8 /-</td>
+                                                       <td>{{ cartitem.price * cartitem.count }}  /-</td>
                                                        <td class="text-danger"><a href="" class="text-danger"
                                                                  (click)="removeAnItem()">remove</a> </td>
                                                   </tr>

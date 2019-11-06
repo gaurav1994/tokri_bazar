@@ -17,6 +17,7 @@ export class Cart {
                     name : item.name,
                     thumbnail : item.thumbnail,
                     discription : item.discription,
+                    price : item.price,
                     count : itemcount
                };
                this.cart.push(newitem);
