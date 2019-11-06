@@ -67,12 +67,12 @@
                                                        <td>{{cartitem.price}}</td>
                                                        <td>
                                                             <button type="button" class="btn-sm btn-style"
-                                                                 (click)="cartitem.count = cartitem.count - 1">
+                                                                 (click)="itemCountNegative(cartitem.count)">
                                                                  <i class="material-icons"> remove_circle_outline </i>
                                                             </button>
                                                             {{ cartitem.count }}
                                                             <button type="button" class=" btn-sm btn-style"
-                                                                 (click)="cartitem.count = cartitem.count + 1">
+                                                                 (click)="itemCountPositive(cartitem.count)">
                                                                  <i class="material-icons"> add_circle_outline </i>
                                                             </button>
                                                        </td>

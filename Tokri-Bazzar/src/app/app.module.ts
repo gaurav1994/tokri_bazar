@@ -9,6 +9,7 @@ import { AdminComponent } from './controllers/admin/admin.component';
 import { EmployeeComponent } from './controllers/employee/employee.component';
 import { NevbarComponent } from './nevbar/nevbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ItemfiltercountPipe } from './pipes/itemfiltercount.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     IndexComponent,
     AdminComponent,
     EmployeeComponent,
-    NevbarComponent
+    NevbarComponent,
+    ItemfiltercountPipe
   ],
   imports: [
     BrowserModule,

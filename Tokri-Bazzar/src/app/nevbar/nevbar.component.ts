@@ -47,4 +47,18 @@ export class NevbarComponent implements OnInit, AfterContentChecked {
     event.preventDefault();
     //   console.log("1");
   }
+  itemCountNegative(value){
+          for(var i in this.cartNevbar){
+               if(this.cartNevbar[i].count === value){
+                    this.cartNevbar[i].count--;
+               }
+          }
+  }
+  itemCountPositive(value){
+     for(var i in this.cartNevbar){
+          if(this.cartNevbar[i].count === value){
+               this.cartNevbar[i].count++;
+          }
+     }
+  }
 }
