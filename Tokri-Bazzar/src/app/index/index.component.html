@@ -1,0 +1,64 @@
+<!--   Body of index -->
+
+<div class="container">
+     <div class="row">
+          <div class="col-md-12">
+               <div class="jumbotron">
+                    <span style="display: inline; float: left; padding-right: 3em;">
+                         <span class="w3-tag w3-jumbo w3-red">S</span>
+                         <span class="w3-tag w3-jumbo">M</span>
+                         <span class="w3-tag w3-jumbo w3-yellow">A</span>
+                         <span class="w3-tag w3-jumbo">R</span>
+                         <span class="w3-tag w3-jumbo w3-green">T</span>
+                    <p class="display-4">Bazar !</p>
+                    </span>
+                    <p class="lead">A cart Solution for Everyone Add Unlimited to CART</p>
+                    <hr class="my-4">
+                    <a class="w3-button w3-transparent w3-border w3-round-xxlarge w3-small" href="#" role="button">Sign-off</a>
+               </div>
+          </div>
+     </div>
+     <div class="row">
+          <div class="col-md-2">
+    4545
+          </div>
+          <div class="col-md-8">
+
+               <div *ngFor="let item of allItems" >
+                    <div class="card mb-3" style="max-width: 600px;">
+                         
+                         <div class="price-tag">{{ item.price }}  Rs/- </div>
+                         <div class="row no-gutters">
+                              <div class="col-md-4">
+                                   <img src="{{  item.thumbnail  }}" class="card-img" alt="...">
+                              </div>
+                              <div class="col-md-8">
+                                   <div class="card-body">
+                                        <h5 class="card-title">{{ item.name }}</h5>
+                                        <span> </span>
+                                        <p class="card-text">{{ item.discription }}</p>
+                                        <div class="row">
+                                             <p class="card-text col-md-6"><small class="text-muted">Last updated {{ item.lastupdate }}
+                                                       ago</small></p>
+                                             <div class="col-md-6">
+                                                  <select class="col-md-4 form-control form-control-sm" id="inlineFormCustomSelect" #selected_item_count>
+                                                       <option value="1" selected>1</option>
+                                                       <option value="2">2</option>
+                                                       <option value="3">3</option>
+                                                  </select>
+                                             </div>
+                                             <button class="btn btn-warning btn-sm ml-3" (click)="addToCart(item, selected_item_count)">Add to Cart</button>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+
+               </div>
+          </div>
+     </div>
+
+
+
+
+     

@@ -1,0 +1,160 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+     <a class="navbar-brand" routerLink="/index" (click)="notadminempMethod()">Smart Bazar</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+     </button>
+
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                    <a class="nav-link" routerLink="/index" (click)="notadminempMethod()">Home <span
+                              class="sr-only">(current)</span></a>
+               </li>
+               <!--               <li class="nav-item">
+                     <a class="nav-link" href="#">Link</a>
+                   </li> 
+     -->
+               <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         Controller
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" routerLink="/admin" (click)="adminMethod()">Admin</a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" routerLink="/employee" (click)="employeeMethod()">Employee</a>
+                    </div>
+               </li>
+          </ul>
+
+          <ul class="navbar-nav">
+                    <p><span class="bg-success text-white float-none cart-badge" *ngIf="totalcounttype" >{{ totalcounttype }}</span></p>
+                    
+               <li class="nav-item dropdown"  *ngIf="!admin && !employee">
+                    <!-- Example split danger button -->
+                    <div class="btn-group">
+                         <button type="button" class="btn btn-sm">
+                              <i class="material-icons">shopping_cart</i>
+                         </button>
+                         <button type="button" class="btn btn-sm dropdown-toggle dropdown-toggle-split"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="sr-only">Toggle Dropdown</span>
+                         </button>
+                         <div class="dropdown-menu dropdown-menu-right  shadow">
+                              <form>
+                                   <div class="cart-style bg-light  overflow-auto" style="height:10px;">
+                                        <h1 class="display-5 text-center">Hi :) <br>Add more to your
+                                             <i class="material-icons md-72">
+                                                  shopping_cart
+                                             </i>
+                                        </h1>
+                                        <table class="table">
+                                             <thead class="thead-dark">
+                                                  <tr>
+                                                       <th scope="col">#</th>
+                                                       <th scope="col">Image</th>
+                                                       <th scope="col">Product name</th>
+                                                       <th scope="col">Base price</th>
+                                                       <th scope="col">No of product</th>
+                                                       <th scope="col">Final Price</th>
+                                                       <th scope="col"></th>
+                                                  </tr>
+                                             </thead>
+                                             <tbody class="mt-3" >
+                                                  <tr class="bg-white text-dark shadow-sm mb-1 " *ngFor="let cartitem of cartNevbar index as i" >
+                                                       <th scope="row">{{cartitem.id}}</th>
+                                                       <td height="70px" width="10px"><img src="{{cartitem.thumbnail}}" class="card-img" ></td>
+                                                       <td>{{cartitem.name}}</td>
+                                                       <td>{{cartitem.price}}</td>
+                                                       <td>
+                                                            <button type="button" class="btn-sm btn-style"
+                                                                 (click)="itemCountNegative(i)">
+                                                                 <i class="material-icons"> remove_circle_outline </i>
+                                                            </button>
+                                                            {{ cartitem.count }}
+                                                            <button type="button" class=" btn-sm btn-style"
+                                                                 (click)="itemCountPositive(i)">
+                                                                 <i class="material-icons"> add_circle_outline </i>
+                                                            </button>
+                                                       </td>
+                                                       <td>{{ cartitem.price * cartitem.count }}  /-</td>
+                                                       <td class="text-danger"><button class="btn btn-sm btn-danger"
+                                                                 (click)="removeAnItem(i)">remove</button> </td>
+                                                  </tr>
+                                             </tbody>
+                                        </table>
+                                        <div class="card text-center">
+                                             <div class="card-header">
+                                               Check-out process
+                                             </div>
+                                             <div class="card-body row">
+                                                  <div class="col-sm-6 text-left">
+                                                            <h5 class="card-title">INVOICE</h5>
+                                                            <p style="font-size: 13px;">Name : Sunil<br>Address : Sector 22 noida , UP, India <br>Pincode : 201301</p>
+                                                            <hr>
+                                                            <a href="" class="btn btn-sm btn-success">Checkout</a>
+                                                            <button type="button" class="btn btn-sm btn-danger ml-4" (click)="clearCart()">Clear Cart</button>
+                                                  </div>
+                                                  <div class="col-sm-6">
+                                                            <table class="table table-borderless">
+                                                                      <thead class="">
+                                                                        <tr>
+                                                                          <th scope="col">Details</th>
+                                                                          <th scope="col"></th>
+                                                                        </tr>
+                                                                      </thead>
+                                                                      <tbody class="text-left checkout-proc" >
+                                                                        <tr>
+                                                                            <td>no. of products type : </td>
+                                                                            <td>{{ totalcounttype }}</td>
+                                                                         </tr>
+                                                                         <tr>
+                                                                                <td>total products : </td>
+                                                                                <td>{{ totalproduct }}</td>
+                                                                         </tr>
+                                                                         <tr>
+                                                                                <td>&nbsp; </td>
+                                                                                <td></td>
+                                                                             </tr>
+                                                                           <tr>
+                                                                                     <td>GRAND TOTAL : </td>
+                                                                                     <td>{{ grandtotal }} /-</td>
+                                                                                  </tr>
+                                                                      </tbody>
+                                                                    </table>
+                                                  </div>
+                                             </div>
+                                           </div>
+                                        
+                                   </div> 
+                                   <div class="row">
+                                        <div class="col-md-3 ml-2">product type : {{ totalcounttype }}</div>
+                                        <div class="col-md-3 ">no. of products : {{ totalproduct }}</div>
+                                        <div class="col-md-3 ">price total : {{ grandtotal }}  /- </div>
+                                   </div>
+                              </form>
+                         </div>
+                    </div>
+               </li>
+               <li class="nav-item">
+                    <button type="nav-link" class="btn btn-sm w3-yellow btn-outline-success" routerLink="/userlogin" *ngIf="!useractivestatus">
+                         Login
+                       </button>
+               </li>
+               <li class="nav-item dropdown" *ngIf="!admin && !employee && useractivestatus ">
+                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="navbarDropdown"
+                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                         User Name
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" href="#">Action</a>
+                         <a class="dropdown-item" href="#">Another action</a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item" href="#">Logout</a>
+                    </div>
+               </li>
+          </ul>
+
+     </div>
+</nav>
